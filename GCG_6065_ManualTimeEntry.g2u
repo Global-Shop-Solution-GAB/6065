@@ -1,0 +1,843 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmClockin..Create(BaseForm)
+Gui.frmClockin..Caption("Manual Time Entry")
+Gui.frmClockin..Size(310,411)
+Gui.frmClockin..MinX(0)
+Gui.frmClockin..MinY(0)
+Gui.frmClockin..Position(0,0)
+Gui.frmClockin..AlwaysOnTop(False)
+Gui.frmClockin..FontName("Tahoma")
+Gui.frmClockin..FontSize(8.25)
+Gui.frmClockin..ControlBox(True)
+Gui.frmClockin..MaxButton(False)
+Gui.frmClockin..MinButton(True)
+Gui.frmClockin..MousePointer(0)
+Gui.frmClockin..Moveable(True)
+Gui.frmClockin..Sizeable(True)
+Gui.frmClockin..ShowInTaskBar(True)
+Gui.frmClockin..TitleBar(True)
+Gui.frmClockin..Event(UnLoad,Form_UnLoad)
+Gui.frmClockin.lbl1.Create(Label,"Employee Badge",True,117,19,0,28,13,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl1.BorderStyle(0)
+Gui.frmClockin.txtemployee.Create(TextBox,"",True,122,30,0,28,36,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtemployee.Event(Change,txtemployee_Change)
+Gui.frmClockin.txtemployee.TabStop(True)
+Gui.frmClockin.txtemployee.TabIndex(1)
+Gui.frmClockin.lbl2.Create(Label,"Job",True,25,19,0,27,72,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl2.BorderStyle(0)
+Gui.frmClockin.txtjob.Create(TextBox,"",True,84,30,0,27,95,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtjob.Event(Change,txtjob_Change)
+Gui.frmClockin.txtjob.TabStop(True)
+Gui.frmClockin.txtjob.TabIndex(2)
+Gui.frmClockin.txtsuffix.Create(TextBox,"",True,41,30,0,118,95,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtsuffix.TabStop(True)
+Gui.frmClockin.txtsuffix.TabIndex(3)
+Gui.frmClockin.txtseq.Create(TextBox,"",True,83,30,0,27,151,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtseq.MaxLength(6)
+Gui.frmClockin.txtseq.Event(LostFocus,txtseq_LostFocus)
+Gui.frmClockin.txtseq.TabStop(True)
+Gui.frmClockin.txtseq.TabIndex(5)
+Gui.frmClockin.lbl3.Create(Label,"Suffix",True,40,19,0,118,71,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl3.BorderStyle(0)
+Gui.frmClockin.lbl4.Create(Label,"Sequence",True,86,24,0,27,128,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl4.BorderStyle(0)
+Gui.frmClockin.cmdbrowse.Create(Button)
+Gui.frmClockin.cmdbrowse.Enabled(True)
+Gui.frmClockin.cmdbrowse.Visible(True)
+Gui.frmClockin.cmdbrowse.Zorder(0)
+Gui.frmClockin.cmdbrowse.Size(24,23)
+Gui.frmClockin.cmdbrowse.Position(164,96)
+Gui.frmClockin.cmdbrowse.Caption("^")
+Gui.frmClockin.cmdbrowse.FontName("Tahoma")
+Gui.frmClockin.cmdbrowse.FontSize(8.25)
+Gui.frmClockin.cmdbrowse.Event(Click,cmdbrowse_Click)
+Gui.frmClockin.cmdbrowse.TabStop(True)
+Gui.frmClockin.cmdbrowse.TabIndex(4)
+Gui.frmClockin.lbl5.Create(Label,"Start",True,33,19,0,27,188,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl5.BorderStyle(0)
+Gui.frmClockin.lbl6.Create(Label,"End",True,27,19,0,176,188,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl6.BorderStyle(0)
+Gui.frmClockin.lbl7.Create(Label,"Good Pcs",True,66,19,0,27,251,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl7.BorderStyle(0)
+Gui.frmClockin.txtgood.Create(TextBox,"",True,69,30,0,27,275,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtgood.NumericOnly(2)
+Gui.frmClockin.txtgood.TabStop(True)
+Gui.frmClockin.txtgood.TabIndex(13)
+Gui.frmClockin.lbl8.Create(Label,"Scrap Pcs",True,67,19,0,114,251,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl8.BorderStyle(0)
+Gui.frmClockin.txtscrap.Create(TextBox,"0",True,69,30,0,114,275,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtscrap.NumericOnly(2)
+Gui.frmClockin.txtscrap.Event(Change,txtscrap_Change)
+Gui.frmClockin.txtscrap.TabStop(True)
+Gui.frmClockin.txtscrap.TabIndex(14)
+Gui.frmClockin.cmdsave.Create(Button)
+Gui.frmClockin.cmdsave.Enabled(True)
+Gui.frmClockin.cmdsave.Visible(True)
+Gui.frmClockin.cmdsave.Zorder(0)
+Gui.frmClockin.cmdsave.Size(75,29)
+Gui.frmClockin.cmdsave.Position(24,331)
+Gui.frmClockin.cmdsave.Caption("Save")
+Gui.frmClockin.cmdsave.FontName("Tahoma")
+Gui.frmClockin.cmdsave.FontSize(12)
+Gui.frmClockin.cmdsave.Event(Click,cmdsave_Click)
+Gui.frmClockin.cmdsave.TabStop(True)
+Gui.frmClockin.cmdsave.TabIndex(17)
+Gui.frmClockin.cmdclear.Create(Button)
+Gui.frmClockin.cmdclear.Enabled(True)
+Gui.frmClockin.cmdclear.Visible(True)
+Gui.frmClockin.cmdclear.Zorder(0)
+Gui.frmClockin.cmdclear.Size(75,29)
+Gui.frmClockin.cmdclear.Position(104,331)
+Gui.frmClockin.cmdclear.Caption("Clear")
+Gui.frmClockin.cmdclear.FontName("Tahoma")
+Gui.frmClockin.cmdclear.FontSize(12)
+Gui.frmClockin.cmdclear.Event(Click,cmdclear_Click)
+Gui.frmClockin.cmdclear.TabStop(True)
+Gui.frmClockin.cmdclear.TabIndex(18)
+Gui.frmClockin.dtpstart.Create(DatePicker)
+Gui.frmClockin.dtpstart.Enabled(True)
+Gui.frmClockin.dtpstart.Visible(False)
+Gui.frmClockin.dtpstart.Zorder(0)
+Gui.frmClockin.dtpstart.Size(72,22)
+Gui.frmClockin.dtpstart.Position(188,176)
+Gui.frmClockin.dtpstart.CheckBox(False)
+Gui.frmClockin.dtpstart.FontName("Tahoma")
+Gui.frmClockin.dtpstart.FontSize(7.8)
+Gui.frmClockin.dtpstart.UpDown(True)
+Gui.frmClockin.dtpend.Create(DatePicker)
+Gui.frmClockin.dtpend.Enabled(True)
+Gui.frmClockin.dtpend.Visible(False)
+Gui.frmClockin.dtpend.Zorder(0)
+Gui.frmClockin.dtpend.Size(72,22)
+Gui.frmClockin.dtpend.Position(218,179)
+Gui.frmClockin.dtpend.CheckBox(False)
+Gui.frmClockin.dtpend.UpDown(True)
+Gui.frmClockin.dtpend.FontName("Tahoma")
+Gui.frmClockin.dtpend.FontSize(7.8)
+Gui.frmClockin.txtwrk.Create(TextBox,"",False,70,22,0,213,99,True,0,"Tahoma",7.8,,1)
+Gui.frmClockin.ddlhrs.Create(DropDownList)
+Gui.frmClockin.ddlhrs.Enabled(True)
+Gui.frmClockin.ddlhrs.Visible(True)
+Gui.frmClockin.ddlhrs.Zorder(0)
+Gui.frmClockin.ddlhrs.Size(43,24)
+Gui.frmClockin.ddlhrs.Position(26,214)
+Gui.frmClockin.ddlhrs.FontName("Tahoma")
+Gui.frmClockin.ddlhrs.FontSize(8.25)
+Gui.frmClockin.ddlhrs.TabStop(True)
+Gui.frmClockin.ddlhrs.TabIndex(7)
+Gui.frmClockin.ddlmin.Create(DropDownList)
+Gui.frmClockin.ddlmin.Enabled(True)
+Gui.frmClockin.ddlmin.Visible(True)
+Gui.frmClockin.ddlmin.Zorder(0)
+Gui.frmClockin.ddlmin.Size(43,24)
+Gui.frmClockin.ddlmin.Position(69,214)
+Gui.frmClockin.ddlmin.FontName("Tahoma")
+Gui.frmClockin.ddlmin.FontSize(8.25)
+Gui.frmClockin.ddlmin.TabStop(True)
+Gui.frmClockin.ddlmin.TabIndex(8)
+Gui.frmClockin.ddlAM.Create(DropDownList)
+Gui.frmClockin.ddlAM.Enabled(True)
+Gui.frmClockin.ddlAM.Visible(True)
+Gui.frmClockin.ddlAM.Zorder(0)
+Gui.frmClockin.ddlAM.Size(43,24)
+Gui.frmClockin.ddlAM.Position(112,214)
+Gui.frmClockin.ddlAM.FontName("Tahoma")
+Gui.frmClockin.ddlAM.FontSize(8.25)
+Gui.frmClockin.ddlAM.TabStop(True)
+Gui.frmClockin.ddlAM.TabIndex(9)
+Gui.frmClockin.ddlhrs1.Create(DropDownList)
+Gui.frmClockin.ddlhrs1.Enabled(True)
+Gui.frmClockin.ddlhrs1.Visible(True)
+Gui.frmClockin.ddlhrs1.Zorder(0)
+Gui.frmClockin.ddlhrs1.Size(43,24)
+Gui.frmClockin.ddlhrs1.Position(175,214)
+Gui.frmClockin.ddlhrs1.FontName("Tahoma")
+Gui.frmClockin.ddlhrs1.FontSize(8.25)
+Gui.frmClockin.ddlhrs1.TabStop(True)
+Gui.frmClockin.ddlhrs1.TabIndex(10)
+Gui.frmClockin.ddlmin1.Create(DropDownList)
+Gui.frmClockin.ddlmin1.Enabled(True)
+Gui.frmClockin.ddlmin1.Visible(True)
+Gui.frmClockin.ddlmin1.Zorder(0)
+Gui.frmClockin.ddlmin1.Size(43,24)
+Gui.frmClockin.ddlmin1.Position(218,214)
+Gui.frmClockin.ddlmin1.FontName("Tahoma")
+Gui.frmClockin.ddlmin1.FontSize(8.25)
+Gui.frmClockin.ddlmin1.TabStop(True)
+Gui.frmClockin.ddlmin1.TabIndex(11)
+Gui.frmClockin.ddlam1.Create(DropDownList)
+Gui.frmClockin.ddlam1.Enabled(True)
+Gui.frmClockin.ddlam1.Visible(True)
+Gui.frmClockin.ddlam1.Zorder(0)
+Gui.frmClockin.ddlam1.Size(43,24)
+Gui.frmClockin.ddlam1.Position(261,214)
+Gui.frmClockin.ddlam1.FontName("Tahoma")
+Gui.frmClockin.ddlam1.FontSize(8.25)
+Gui.frmClockin.ddlam1.TabStop(True)
+Gui.frmClockin.ddlam1.TabIndex(12)
+Gui.frmClockin.cmdbrowseScrap.Create(Button)
+Gui.frmClockin.cmdbrowseScrap.Enabled(True)
+Gui.frmClockin.cmdbrowseScrap.Visible(False)
+Gui.frmClockin.cmdbrowseScrap.Zorder(0)
+Gui.frmClockin.cmdbrowseScrap.Size(24,23)
+Gui.frmClockin.cmdbrowseScrap.Position(277,275)
+Gui.frmClockin.cmdbrowseScrap.Caption("^")
+Gui.frmClockin.cmdbrowseScrap.FontName("Tahoma")
+Gui.frmClockin.cmdbrowseScrap.FontSize(8.25)
+Gui.frmClockin.cmdbrowseScrap.Event(Click,cmdbrowseScrap_Click)
+Gui.frmClockin.cmdbrowseScrap.TabStop(True)
+Gui.frmClockin.cmdbrowseScrap.TabIndex(16)
+Gui.frmClockin.txtscrapCode.Create(TextBox,"",False,84,30,0,188,275,True,0,"Tahoma",12,,1)
+Gui.frmClockin.txtscrapCode.Locked(True)
+Gui.frmClockin.txtscrapCode.TabStop(True)
+Gui.frmClockin.txtscrapCode.TabIndex(15)
+Gui.frmClockin.txtcomments.Create(TextboxM)
+Gui.frmClockin.txtcomments.Enabled(True)
+Gui.frmClockin.txtcomments.Visible(False)
+Gui.frmClockin.txtcomments.Zorder(0)
+Gui.frmClockin.txtcomments.Size(272,96)
+Gui.frmClockin.txtcomments.Position(26,351)
+Gui.frmClockin.txtcomments.FontName("Tahoma")
+Gui.frmClockin.txtcomments.FontSize(8.25)
+Gui.frmClockin.lbl9.Create(Label,"Comments",False,76,19,0,28,323,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl9.BorderStyle(0)
+Gui.frmClockin.chkStatus.Create(CheckBox)
+Gui.frmClockin.chkStatus.Enabled(True)
+Gui.frmClockin.chkStatus.Visible(True)
+Gui.frmClockin.chkStatus.Zorder(0)
+Gui.frmClockin.chkStatus.Size(94,24)
+Gui.frmClockin.chkStatus.Position(122,154)
+Gui.frmClockin.chkStatus.Caption("")
+Gui.frmClockin.chkStatus.FontName("Tahoma")
+Gui.frmClockin.chkStatus.FontSize(7.8)
+Gui.frmClockin.chkStatus.TabStop(True)
+Gui.frmClockin.chkStatus.TabIndex(6)
+Gui.frmClockin.lbl10.Create(Label,"Closed",True,86,24,0,122,128,True,0,"Tahoma",12,,0,0)
+Gui.frmClockin.lbl10.BorderStyle(0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+Program.Sub.Main.Start
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+
+v.Local.i.Declare
+v.Local.sRet.Declare
+
+v.Local.sPath.Declare
+v.Local.sBuyers.Declare
+v.Local.sParam.Declare
+v.Local.sParent.Declare
+
+v.Local.EDate.Declare(date)
+V.Local.sDate.Declare
+
+
+
+
+f.Intrinsic.Control.If(v.Caller.Hook,=,15760)
+''''script1
+	gui.frmClockin.dtpstart.CustomFormat("HH:mm")
+	gui.frmClockin.dtpstart.Mask("HH:mm")
+	gui.frmClockin.dtpstart.Value("00:00")
+	
+	
+	gui.frmClockin.dtpend.CustomFormat("HH:mm")
+	gui.frmClockin.dtpend.Mask("HH:mm")
+	gui.frmClockin.dtpend.Value("00:00")
+	
+	gui.frmClockin.ddlAM.AddItem("AM")
+	gui.frmClockin.ddlAM.AddItem("PM")
+	gui.frmClockin.ddlam1.AddItem("AM")
+	gui.frmClockin.ddlAM1.AddItem("PM")
+	
+	f.Intrinsic.Control.For(v.Local.i,1,12,1)
+		f.Intrinsic.String.LPad(v.Local.i,"0",2,v.Local.sRet)
+		gui.frmClockin.ddlhrs.AddItem(v.Local.sRet)
+		gui.frmClockin.ddlhrs1.AddItem(v.Local.sRet)
+	f.Intrinsic.Control.Next(v.Local.i)
+	
+	f.Intrinsic.Control.For(v.Local.i,0,59,1)
+		f.Intrinsic.String.LPad(v.Local.i,"0",2,v.Local.sRet)
+		gui.frmClockin.ddlmin.AddItem(v.Local.sRet)
+		gui.frmClockin.ddlmin1.AddItem(v.Local.sRet)
+	f.Intrinsic.Control.Next(v.Local.i)
+	gui.frmClockin..Show
+f.Intrinsic.Control.elseIf(v.Caller.Hook,=,15710)
+'poulate
+	'rename Script 1 to “Time Entry”. 
+	v.Passed.000016.Set("Time Entry")
+f.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+Program.Sub.Form_UnLoad.Start
+	f.Intrinsic.Control.End
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.cmdsave_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.EDate.Declare(date)
+V.Local.sFile.Declare
+V.Local.sExecute.Declare
+V.Local.sLine.Declare
+V.Local.sWCenter.Declare
+
+v.Local.sStartime.Declare
+v.Local.sEndtime.Declare
+V.Local.sDate.Declare
+
+V.local.fQty.Declare
+V.local.fsQty.Declare
+
+V.Local.sTime1.Declare(Date)
+V.Local.sTime2.Declare(Date)
+
+
+v.Local.lQty.Declare
+v.Local.l2Qty.Declare
+v.Local.sSrapcode.Declare
+
+v.Local.lScrapqty.Declare
+v.Local.lGoodqty.Declare
+
+v.Local.ssql.Declare
+v.Local.sCloseSeq.Declare
+
+
+
+f.Intrinsic.String.Build("{0}:{1} {2}",v.Screen.frmClockin!ddlhrs.text,v.Screen.frmClockin!ddlmin.text,v.Screen.frmClockin!ddlam.text,V.Local.sTime1)
+
+'f.Intrinsic.UI.Msgbox(V.Local.sTime1)
+'f.Intrinsic.UI.Msgbox(v.Ambient.Now)
+
+'f.Intrinsic.Control.If(V.Local.sTime1,>,v.Ambient.Now)
+'	f.Intrinsic.Date.DateAdd("d",-1,v.Ambient.Date,v.Local.EDate)
+'	F.Intrinsic.String.Format(v.Local.EDate,"MMDDYY",V.Local.sDate)
+'f.Intrinsic.Control.Else
+'	F.Intrinsic.String.Format(v.Ambient.Date,"MMDDYY",V.Local.sDate)
+'f.Intrinsic.Control.EndIf
+
+
+v.Local.lGoodqty.Set(v.Screen.frmClockin!txtgood.Text)
+v.Local.lScrapqty.Set(v.Screen.frmClockin!txtscrap.Text)
+
+''v.Local.fQty.Set(v.Screen.frmClockin!txtemployee.Text)
+
+''Function.Intrinsic.Math.MOD(v.Local.fQty,2,v.Local.lQty)
+''f.Intrinsic.Control.If(v.Local.lQty,>,0)
+''	Function.Intrinsic.Math.div(v.Local.fQty.long,2,v.Local.l2Qty)
+''	
+''	Function.Intrinsic.Math.add(v.Local.l2Qty,1,v.Local.lQty)
+''	Function.Intrinsic.Math.sub(v.Local.l2Qty,1,v.Local.l2Qty)
+''f.Intrinsic.Control.else
+''	Function.Intrinsic.Math.div(v.Local.fQty.long,2,v.Local.l2Qty)
+''	v.Local.lQty.Set(v.Local.l2Qty)
+''f.Intrinsic.Control.EndIf
+
+''f.Intrinsic.UI.Msgbox(v.Local.lQty)
+''f.Intrinsic.UI.Msgbox(v.Local.l2Qty)
+
+'f.Intrinsic.Ui.Msgbox(v.Screen.frmClockin!chkStatus.Value)
+'f.Intrinsic.Control.ExitSub
+
+
+f.Intrinsic.Control.If(v.Screen.frmClockin!txtemployee.Text,=,"")
+	f.Intrinsic.UI.Msgbox("Employee invalid")
+	gui.frmClockin.txtemployee.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!txtjob.Text,=,"")
+	f.Intrinsic.UI.Msgbox("JOB invalid")
+	gui.frmClockin.txtjob.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!txtseq.Text,=,"")
+	f.Intrinsic.UI.Msgbox("Sequence invalid")
+	Gui.frmClockin.txtseq.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!ddlhrs.Text,=,"")
+	f.Intrinsic.UI.Msgbox("ClockIn Hours invalid")
+	Gui.frmClockin.ddlhrs.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!ddlmin.Text,=,"")
+	f.Intrinsic.UI.Msgbox("ClockIn Minute invalid")
+	Gui.frmClockin.ddlmin.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!ddlAM.Text,=,"")
+	f.Intrinsic.UI.Msgbox("Date Format invalid")
+	Gui.frmClockin.ddlAM.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!ddlhrs1.Text,=,"")
+	f.Intrinsic.UI.Msgbox("ClockOut Hours invalid")
+	Gui.frmClockin.ddlhrs1.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!ddlmin1.Text,=,"")
+	Gui.frmClockin.ddlmin1.SetFocus	
+	f.Intrinsic.UI.Msgbox("ClockOut Minute invalid")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Screen.frmClockin!ddlAM1.Text,=,"")
+	f.Intrinsic.UI.Msgbox("Date Format invalid")
+	Gui.frmClockin.ddlAM1.SetFocus
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.elseif(v.Local.lGoodqty,<,1)
+	f.Intrinsic.Control.If(v.Local.lScrapqty,<,1)
+		f.Intrinsic.UI.Msgbox("Quantity invalid")
+		gui.frmClockin.txtgood.SetFocus
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.If(v.Local.lScrapqty,>,0)
+	f.Intrinsic.Control.If(v.Screen.frmClockin!txtscrapCode.Text,=,"")
+		f.Intrinsic.UI.Msgbox("Scrap code invalid")
+		gui.frmClockin.txtscrapCode.SetFocus
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	v.Local.sSrapcode.Set(v.Screen.frmClockin!txtscrapCode.Text)
+f.Intrinsic.Control.EndIf
+
+
+F.ODBC.Connection!Conx.OpenCompanyConnection(2500)
+
+F.Intrinsic.String.Build("SELECT PAY_TYPE FROM V_EMPLOYEE_MSTR WHERE EMPLOYEE = '{0}' ",v.Screen.frmClockin!txtemployee.Text,V.Local.sSQL)
+F.ODBC.Connection!conx.OpenlocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF)
+	f.Intrinsic.UI.Msgbox("Employee not Found")
+	gui.frmClockin.txtemployee.SetFocus
+	F.ODBC.conx!rst.Close
+	F.ODBC.Connection!conx.Close
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rst.Close
+
+'f.Intrinsic.String.Build("SELECT OPR.part as workcenter FROM V_JOB_OPERATIONS OPR join V_Job_Header HDR on HDR.job= OPR.job and HDR.suffix = OPR.suffix WHERE FLAG_CLOSED <> 'Y' AND LMO = 'L' and  Date_Closed = '1900-01-01' and HDR.job = '{0}' and HDR.suffix = '{1}' and SEQ = '{2}'",v.Screen.frmClockin!txtjob.Text,v.Screen.frmClockin!txtsuffix.Text,v.Screen.frmClockin!txtseq.Text,v.Local.ssql)
+f.Intrinsic.String.Build("SELECT OPR.part as workcenter FROM V_JOB_OPERATIONS OPR join V_Job_Header HDR on HDR.job= OPR.job and HDR.suffix = OPR.suffix WHERE LMO = 'L' and  Date_Closed = '1900-01-01' and HDR.job = '{0}' and HDR.suffix = '{1}' and SEQ = '{2}'",v.Screen.frmClockin!txtjob.Text,v.Screen.frmClockin!txtsuffix.Text,v.Screen.frmClockin!txtseq.Text,v.Local.ssql)
+
+F.ODBC.Connection!conx.OpenlocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	Gui.frmClockin.txtwrk.Text(V.ODBC.conx!rst.FieldVal!workcenter)
+f.Intrinsic.Control.Else
+	f.Intrinsic.UI.Msgbox("WO not Found/closed")
+	gui.frmClockin.txtsuffix.Text("")
+	gui.frmClockin.txtseq.Text("")
+	gui.frmClockin.txtjob.Text("")
+	F.ODBC.conx!rst.Close
+	F.ODBC.Connection!conx.Close
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.ODBC.conx!rst.Close
+F.ODBC.Connection!conx.Close
+f.Intrinsic.Control.BlockEvents
+
+
+'V.local.fQty.Set(v.Screen.frmClockin!txtgood.Text)
+''split qty	
+'	Function.Intrinsic.Math.MOD(v.Local.fQty,2,v.Local.lQty)
+'	f.Intrinsic.Control.If(v.Local.lQty,>,0)
+'		Function.Intrinsic.Math.div(v.Local.fQty.long,2,v.Local.l2Qty)
+'		
+'		Function.Intrinsic.Math.add(v.Local.l2Qty,1,v.Local.lQty)
+'		Function.Intrinsic.Math.sub(v.Local.l2Qty,1,v.Local.l2Qty)
+'		
+'		V.local.fQty.Set(v.Local.lQty)
+'	f.Intrinsic.Control.else
+'		Function.Intrinsic.Math.div(v.Local.fQty.long,2,v.Local.l2Qty)
+'	f.Intrinsic.Control.EndIf
+
+''f.Intrinsic.UI.Msgbox(v.Local.lQty)
+'f.Intrinsic.UI.Msgbox(v.Local.l2Qty)
+
+'f.Intrinsic.Control.ExitSub
+
+'f.Intrinsic.Control.If(v.Screen.frmClockin!dtpend.Value,<,v.Screen.frmClockin!dtpstart.Value)
+'	f.Intrinsic.Date.DateAdd("d",1,v.Ambient.Date,v.Local.EDate)
+'	
+'	f.Intrinsic.String.Format(v.Screen.frmClockin!dtpstart.Value,"HH:mm",v.Local.sStartime)
+'	v.Local.sEndtime.Set("23:59")
+'f.Intrinsic.Control.Else
+'	f.Intrinsic.String.Format(v.Screen.frmClockin!dtpstart.Value,"HH:mm",v.Local.sStartime)
+'	f.Intrinsic.String.Format(v.Screen.frmClockin!dtpend.Value,"HH:mm",v.Local.sEndtime)
+'f.Intrinsic.Control.EndIf
+
+
+f.Intrinsic.String.Build("{0}:{1} {2}",v.Screen.frmClockin!ddlhrs.text,v.Screen.frmClockin!ddlmin.text,v.Screen.frmClockin!ddlam.text,V.Local.sTime1)
+f.Intrinsic.String.Build("{0}:{1} {2}",v.Screen.frmClockin!ddlhrs1.text,v.Screen.frmClockin!ddlmin1.text,v.Screen.frmClockin!ddlam1.text,V.Local.sTime2)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+V.local.fQty.Set(v.Screen.frmClockin!txtgood.Text)
+
+'f.Intrinsic.Control.If(V.Local.sTime2,<,V.Local.sTime1)
+'	f.Intrinsic.Date.DateAdd("d",1,v.Ambient.Date,v.Local.EDate)
+
+'	f.Intrinsic.String.Format(V.Local.sTime1,"HH:mm",v.Local.sStartime)
+'	v.Local.sEndtime.Set("23:59")
+'		
+'	'split qty	
+'	Function.Intrinsic.Math.MOD(v.Local.fQty,2,v.Local.lQty)
+'	f.Intrinsic.Control.If(v.Local.lQty,>,0)
+'		Function.Intrinsic.Math.div(v.Local.fQty,2,v.Local.fQty)
+'		
+'		Function.Intrinsic.Math.Floor(v.Local.fQty,v.Local.l2Qty)
+'		
+'		Function.Intrinsic.Math.add(v.Local.l2Qty,1,v.Local.lQty)
+
+'		V.local.fQty.Set(v.Local.lQty)
+'	f.Intrinsic.Control.else
+'		Function.Intrinsic.Math.div(v.Local.fQty,2,v.Local.l2Qty)
+'		V.local.fQty.Set(v.Local.l2Qty)
+'	f.Intrinsic.Control.EndIf
+'f.Intrinsic.Control.Else
+
+	f.Intrinsic.String.Format(V.Local.sTime1,"HH:mm",v.Local.sStartime)
+	f.Intrinsic.String.Format(V.Local.sTime2,"HH:mm",v.Local.sEndtime)
+'f.Intrinsic.Control.EndIf
+
+
+f.Intrinsic.String.replace(v.Local.sStartime,":","",v.Local.sStartime)
+
+f.Intrinsic.String.replace(v.Local.sEndtime,":","",v.Local.sEndtime)
+
+'f.Intrinsic.Control.If(V.Local.sTime2,<,V.Local.sTime1)
+'	f.Intrinsic.Date.DateAdd("d",-1,v.Ambient.Date,v.Local.EDate)
+'	F.Intrinsic.String.Format(v.Local.EDate,"MMDDYY",V.Local.sDate)
+'f.Intrinsic.Control.Else
+'	F.Intrinsic.String.Format(v.Ambient.Date,"MMDDYY",V.Local.sDate)
+'f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(V.Local.sTime1,>,v.Ambient.Now)
+	f.Intrinsic.Date.DateAdd("d",-1,v.Ambient.Date,v.Local.EDate)
+	F.Intrinsic.String.Format(v.Local.EDate,"MMDDYY",V.Local.sDate)
+f.Intrinsic.Control.Else
+	F.Intrinsic.String.Format(v.Ambient.Date,"MMDDYY",V.Local.sDate)
+f.Intrinsic.Control.EndIf
+
+
+f.Intrinsic.Math.Mult(V.local.fQty,10000,V.local.fQty)
+f.Intrinsic.Math.Mult(v.Screen.frmClockin!txtscrap.Text,10000,V.local.fsQty)
+		
+'date, employee, job, suffix, seq, workcenter, hours, closed, indirect, start time, finish time, rate type, good pieces, scrap, scrap code
+
+
+'F.Intrinsic.String.Build("{1}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}{0}{10}{0}{11}{0}{12}{0}{13}{0}{14}{0}{15}{0}{16}{0}{17}",V.Ambient.Tab,V.Local.sLine,V.Local.sDate,v.Screen.frmClockin!txtemployee.Text,v.Screen.frmClockin!txtjob.Text,v.Screen.frmClockin!txtSuffix.Text,v.Screen.frmClockin!txtseq.Text,v.Screen.frmClockin!txtwrk.Text,"0","N","D",v.Local.sStartime,v.Local.sEndtime,"R",V.local.fQty,V.local.fsQty,v.Local.sSrapcode,V.Ambient.NewLine,V.Local.sLine)
+
+
+f.Intrinsic.Control.If(v.Screen.frmClockin!chkStatus.Value,=,0)
+	v.Local.sCloseSeq.Set("N")
+f.Intrinsic.Control.Else
+	v.Local.sCloseSeq.Set("Y")
+f.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.String.Build("{1}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}{0}{10}{0}{11}{0}{12}{0}{13}{0}{14}{0}{15}{0}{16}{0}{17}",V.Ambient.Tab,V.Local.sLine,V.Local.sDate,v.Screen.frmClockin!txtemployee.Text,v.Screen.frmClockin!txtjob.Text,v.Screen.frmClockin!txtSuffix.Text,v.Screen.frmClockin!txtseq.Text,v.Screen.frmClockin!txtwrk.Text,"0",v.Local.sCloseSeq,"D",v.Local.sStartime,v.Local.sEndtime,"R",V.local.fQty,V.local.fsQty,v.Local.sSrapcode,V.Ambient.NewLine,V.Local.sLine)
+
+
+'f.Intrinsic.Control.If(V.Local.sTime2,<,V.Local.sTime1)
+'	v.Local.sStartime.Set("0000")
+'	F.Intrinsic.String.Format(v.Local.EDate,"MMDDYY",V.Local.sDate)
+'	
+'	f.Intrinsic.Math.Mult(v.Local.l2Qty,10000,V.local.fQty)
+'	V.local.fsQty.Set(0)
+''	f.Intrinsic.String.Format(v.Screen.frmClockin!dtpend.Value,"HH:mm",v.Local.sEndtime)
+'	f.Intrinsic.String.Format(V.Local.sTime2,"HH:mm",v.Local.sEndtime)
+'	f.Intrinsic.String.replace(v.Local.sEndtime,":","",v.Local.sEndtime)
+''	f.Intrinsic.UI.Msgbox(v.Local.fQty)
+'	F.Intrinsic.String.Build("{1}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}{0}{10}{0}{11}{0}{12}{0}{13}{0}{14}{0}{15}{0}{16}{0}{17}",V.Ambient.Tab,V.Local.sLine,V.Local.sDate,v.Screen.frmClockin!txtemployee.Text,v.Screen.frmClockin!txtjob.Text,v.Screen.frmClockin!txtSuffix.Text,v.Screen.frmClockin!txtseq.Text,v.Screen.frmClockin!txtwrk.Text,"0",v.Local.sCloseSeq,"D",v.Local.sStartime,v.Local.sEndtime,"R",V.local.fQty,V.local.fsQty,"",V.Ambient.NewLine,V.Local.sLine)
+'f.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Debug.Stop
+
+
+'JB0455
+	F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,V.Caller.Terminal,"MOPEN.txt",V.Local.sFile)
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sLine)
+	F.Intrinsic.String.Concat(V.Caller.CompanyCode,V.Caller.Terminal,"MOPEN.txt",V.Local.sExecute)
+	F.Intrinsic.Task.LaunchGSSSync("JB0455","-c",V.Local.sExecute)
+	
+'	V.Local.sSQL.Declare
+'	f.Intrinsic.Control.If(v.Screen.frmClockin!txtcomments.Text,<>,"")
+'		F.ODBC.Connection!Conx.OpenCompanyConnection(2500)
+'			f.Intrinsic.String.Build("select * from JOBS_IN_PROCESS where job = '{0}' and suffix = '{1}' and sequence = '{2}' order by date_sequence,sequence_key",v.Screen.frmClockin!txtjob.Text,v.Screen.frmClockin!txtSuffix.Text,v.Screen.frmClockin!txtseq.Text,V.Local.sSQL)
+'			F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSQL)
+'			F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+'				F.ODBC.conx!rst.Set!Text_Comment("Y")
+'				F.ODBC.conx!rst.Set!Text_Shared(v.Screen.frmClockin!txtcomments.Text)
+'	'			F.ODBC.conx!rst.Set!Text_SEQ(v.DataView.DTAddJob!DVJob(v.Local.iCount).Text_SEQ!FieldValTrim)
+'				F.ODBC.conx!rst.Update
+'			F.Intrinsic.Control.EndIf
+'			F.ODBC.conx!rst.Close
+'		F.ODBC.Connection!conx.Close
+'	f.Intrinsic.Control.endif
+	f.Intrinsic.UI.Msgbox("Manual TimeEntry completed")
+	
+	f.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.Control.CallSub(Error_Log,"ERRMSG",V.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdsave_Click.End
+Program.Sub.cmdclear_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+gui.frmClockin.txtemployee.Text("")
+gui.frmClockin.txtjob.Text("")
+gui.frmClockin.txtsuffix.Text("")
+gui.frmClockin.txtseq.Text("")
+gui.frmClockin.txtgood.Text("")
+gui.frmClockin.txtscrap.Text("")
+gui.frmClockin.txtwrk.Text("")
+gui.frmClockin.dtpstart.Value("00:00")
+gui.frmClockin.dtpend.Value("00:00")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.Control.CallSub(Error_Log,"ERRMSG",V.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdclear_Click.End
+Program.Sub.cmdbrowse_Click.Start
+F.Intrinsic.Control.Try
+
+v.Local.ssql.Declare
+V.Local.sError.Declare
+'Query for browser
+'v.Local.ssql.set("SELECT HDR.job,HDR.suffix,SEQ,OPR.part as workcenter FROM V_JOB_OPERATIONS OPR join V_Job_Header HDR on HDR.job= OPR.job and HDR.suffix = OPR.suffix WHERE FLAG_CLOSED <> 'Y' AND LMO = 'L' and  Date_Closed = '1900-01-01' order by HDR.job,HDR.suffix,SEQ")
+v.Local.ssql.set("SELECT HDR.job,HDR.suffix,SEQ,OPR.part as workcenter FROM V_JOB_OPERATIONS OPR join V_Job_Header HDR on HDR.job= OPR.job and HDR.suffix = OPR.suffix WHERE LMO = 'L' and  Date_Closed = '1900-01-01' order by HDR.job,HDR.suffix,SEQ")
+
+V.Local.sWidths.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sRet.Declare
+
+
+F.ODBC.Connection!Conx.OpenCompanyConnection(2500)
+
+V.Local.sTitles.Set("JOB*!*Suffix*!*Sequence*!*WCenter")
+V.Local.sWidths.Set("1800*!*900*!*1200*!*1200")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+
+
+F.Intrinsic.UI.Browser("Select workorder","conx",V.Local.sSQL,V.Local.sTitles,V.Local.sWidths,12500,12500,V.Local.sRet)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.frmClockin.txtjob.Text(V.Local.sRet(0).Trim)
+	Gui.frmClockin.txtsuffix.Text(V.Local.sRet(1).Trim)
+	Gui.frmClockin.txtseq.Text(V.Local.sRet(2).Trim)
+	Gui.frmClockin.txtwrk.Text(V.Local.sRet(3).Trim)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.Control.CallSub(Error_Log,"ERRMSG",V.Local.sError)
+F.Intrinsic.Control.EndTry
+
+Program.Sub.cmdbrowse_Click.End
+Program.Sub.Error_Log.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.UI.Msgbox(v.Args.ERRMSG)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.Error_Log.End
+Program.Sub.txtscrap_Change.Start
+v.Local.lQty.Declare
+
+	v.Local.lQty.Set(v.Screen.frmClockin!txtscrap.Text)
+
+	f.Intrinsic.Control.If(v.Local.lQty,>,0)
+		gui.frmClockin.cmdbrowseScrap.Visible(true)
+		gui.frmClockin.txtscrapCode.Visible(true)
+	f.Intrinsic.Control.Else
+		gui.frmClockin.cmdbrowseScrap.Visible(false)
+		gui.frmClockin.txtscrapCode.Visible(false)
+		gui.frmClockin.txtscrap.Text(0)
+	f.Intrinsic.Control.EndIf
+Program.Sub.txtscrap_Change.End
+
+Program.Sub.cmdbrowseScrap_Click.Start
+'SELECT SCRAP_CODE, SCRAP_CODE_DESC FROM RJCT_SCRP_CODES WHERE SYS = 'REJ' AND SUB_SYS = 'CDE' ORDER BY SCRAP_CODE
+F.Intrinsic.Control.Try
+
+v.Local.ssql.Declare
+V.Local.sError.Declare
+'Query for browser
+v.Local.ssql.set("SELECT SCRAP_CODE, SCRAP_CODE_DESC FROM RJCT_SCRP_CODES WHERE SYS = 'REJ' AND SUB_SYS = 'CDE' ORDER BY SCRAP_CODE")
+
+V.Local.sWidths.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sRet.Declare
+
+
+F.ODBC.Connection!Conx.OpenCompanyConnection(2500)
+
+V.Local.sTitles.Set("SCRAP CODE*!*SCRAP DESC")
+V.Local.sWidths.Set("900*!*1900")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+
+
+F.Intrinsic.UI.Browser("Select Scrap Code","conx",V.Local.sSQL,V.Local.sTitles,V.Local.sWidths,8500,10500,V.Local.sRet)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.frmClockin.txtscrapCode.Text(V.Local.sRet(0).Trim)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.Control.CallSub(Error_Log,"ERRMSG",V.Local.sError)
+F.Intrinsic.Control.EndTry
+
+Program.Sub.cmdbrowseScrap_Click.End
+
+Program.Sub.txtemployee_Change.Start
+F.Intrinsic.Control.Try
+	'%$91337
+v.Local.bRet.Declare
+v.Local.sRet.Declare
+
+v.Local.sRet.Set(v.Screen.frmClockin!txtemployee.Text)
+f.Intrinsic.Control.If(v.Local.sRet.Length,=,7)
+	f.Intrinsic.String.IsInString(v.Screen.frmClockin!txtemployee.Text,"%$",True,v.Local.bRet)
+	f.Intrinsic.Control.If(v.Local.bRet)
+	'scanned employee
+		f.Intrinsic.String.Split(v.Screen.frmClockin!txtemployee.Text,"%$",v.Local.sRet)
+		gui.frmClockin.txtemployee.Text(v.Local.sRet(1))
+		gui.frmClockin.txtjob.SetFocus
+		'check to see employee is valid
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.Control.CallSub(Error_Log,"ERRMSG",V.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtemployee_Change.End
+
+Program.Sub.txtjob_Change.Start
+F.Intrinsic.Control.Try
+v.Local.bRet.Declare
+v.Local.sRet.Declare
+v.Local.sJob.Declare
+v.Local.sSuffix.Declare
+
+
+
+'$%19012 003000005
+v.Local.sRet.set(v.Screen.frmClockin!txtjob.Text)
+f.Intrinsic.Control.If(v.Local.sRet.Length,=,17)
+	f.Intrinsic.String.IsInString(v.Screen.frmClockin!txtjob.Text,"$%",True,v.Local.bRet)
+	f.Intrinsic.Control.If(v.Local.bRet)
+	
+	'scanned JOB
+		f.Intrinsic.String.Split(v.Screen.frmClockin!txtjob.Text,"$%",v.Local.sRet)
+		v.Local.sJob.Set(v.Local.sRet(1).left6)
+		
+		f.Intrinsic.String.Mid(v.Local.sRet(1),7,3,v.Local.sSuffix)
+		gui.frmClockin.txtsuffix.Text(v.Local.sSuffix)
+		f.Intrinsic.String.Mid(v.Local.sRet(1),11,6,v.Local.sSuffix)
+		gui.frmClockin.txtseq.Text(v.Local.sSuffix)
+		gui.frmClockin.txtjob.Text(v.Local.sJob)
+		gui.frmClockin.ddlhrs.SetFocus
+		
+		'check to see job is open 
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("{0} Subroutine:{1} Error Occurred {2} with description {3}",v.Ambient.Now,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	f.Intrinsic.Control.CallSub(Error_Log,"ERRMSG",V.Local.sError)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtjob_Change.End
+
+Program.Sub.txtseq_LostFocus.Start
+v.Local.sret.Declare
+
+f.Intrinsic.String.LPad(v.Screen.frmClockin!txtseq.Text,"0",6,v.Local.sret)
+gui.frmClockin.txtseq.Text(v.Local.sret)
+
+Program.Sub.txtseq_LostFocus.End
+Program.Sub.txtemployee_KeyPress.Start
+v.Local.bRet.Declare
+v.Local.sRet.Declare
+v.Local.sRet.set(v.Screen.frmClockin!txtemployee.Text)
+'%$91337
+f.Intrinsic.Control.If(v.Local.sRet.Length,=,6)
+	f.Intrinsic.String.IsInString(v.Local.sRet,"%$",True,v.Local.bRet)
+	f.Intrinsic.Control.If(v.Local.bRet)
+	'scanned employee
+		f.Intrinsic.String.Split(v.Local.sRet,"%$",v.Local.sRet)
+		gui.frmClockin.txtemployee.Text(v.Local.sRet(1))
+		gui.frmClockin.txtjob.SetFocus
+		'check to see employee is valid
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.endif
+
+Program.Sub.txtemployee_KeyPress.End
+Program.Sub.txtjob_KeyPress.Start
+v.Local.bRet.Declare
+v.Local.sRet.Declare
+v.Local.sJob.Declare
+v.Local.sSuffix.Declare
+v.Local.ssql.Declare
+v.Local.sSeq.Declare
+
+v.Local.sRet.set(v.Screen.frmClockin!txtjob.Text)
+
+f.Intrinsic.Control.If(v.Local.sRet.Length,=,16)
+	'$%19012 003000005
+	f.Intrinsic.String.IsInString(v.Screen.frmClockin!txtjob.Text,"$%",True,v.Local.bRet)
+	f.Intrinsic.Control.If(v.Local.bRet)
+	
+	'scanned JOB
+		f.Intrinsic.String.Split(v.Screen.frmClockin!txtjob.Text,"$%",v.Local.sRet)
+		v.Local.sJob.Set(v.Local.sRet(1).left6)
+		
+		f.Intrinsic.String.Mid(v.Local.sRet(1),7,3,v.Local.sSuffix)
+		gui.frmClockin.txtsuffix.Text(v.Local.sSuffix)
+		f.Intrinsic.String.Mid(v.Local.sRet(1),11,6,v.Local.sSeq)
+		gui.frmClockin.txtseq.Text(v.Local.sSeq)
+		gui.frmClockin.txtjob.Text(v.Local.sJob)
+'		F.ODBC.Connection!Conx.OpenCompanyConnection(2500)
+'		f.Intrinsic.String.Build("SELECT OPR.part as workcenter FROM V_JOB_OPERATIONS OPR join V_Job_Header HDR on HDR.job= OPR.job and HDR.suffix = OPR.suffix WHERE FLAG_CLOSED <> 'Y' AND LMO = 'L' and  Date_Closed = '1900-01-01' and HDR.job = '{0}' and HDR.suffix = '{1}' and SEQ = '{2}'",v.Local.sJob,v.Local.sSuffix,v.Local.sSeq,v.Local.ssql)
+'		F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sSQL)
+'		F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+'			Gui.frmClockin.txtwrk.Text(v.Screen.frmClockin!workcenter.Text)
+'			gui.frmClockin.ddlhrs.SetFocus
+'		f.Intrinsic.Control.Else
+'			f.Intrinsic.UI.Msgbox("WO not Found/closed")
+'			gui.frmClockin.txtsuffix.Text("")
+'			gui.frmClockin.txtseq.Text("")
+'			gui.frmClockin.txtjob.Text("")
+'		F.Intrinsic.Control.EndIf
+'		F.ODBC.conx!rst.Close
+'		F.ODBC.Connection!conx.Close
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.endif
+
+Program.Sub.txtjob_KeyPress.End
+Program.Sub.txtjob_KeyPress1.Start
+Program.Sub.txtjob_KeyPress1.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$rnair$}$20200831101955909$}$JUGEdtlNdgRUPvge2DQ26QlJ++3xMCFekowQtBTlNYtX66PPQBsHbZz05URaS55gGlrRIjBpGBE=
+Program.Sub.Comments.End
